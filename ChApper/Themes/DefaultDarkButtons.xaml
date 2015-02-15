@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:clr="clr-namespace:System;assembly=mscorlib" >
+
+    <SolidColorBrush Color="LightGray" x:Key="color_selectedTab_background" />
+    <SolidColorBrush Color="LightGray" x:Key="color_userinfo_description_background" />
+    <SolidColorBrush Color="Black" x:Key="color_overlays_composebox" />
+
+    <ImageSource x:Key="button_repost">/Chapper;component/Images/ButtonsBlack/glyphicons_080_retweet.png</ImageSource>
+    <ImageSource x:Key="button_unrepost">/Chapper;component/Images/ButtonsYellow/glyphicons_080_retweet.png</ImageSource>
+    <ImageSource x:Key="button_reply">/Chapper;component/Images/ButtonsBlack/glyphicons_221_unshare.png</ImageSource>
+    <ImageSource x:Key="button_send_message">/Chapper;component/Images/ButtonsBlack/glyphicons_010_envelope.png</ImageSource>
+    <ImageSource x:Key="button_show_conversation">/Chapper;component/Images/ButtonsBlack/glyphicons_244_conversation.png</ImageSource>
+    <ImageSource x:Key="button_quote">/Chapper;component/Images/ButtonsBlack/quote.png</ImageSource>
+    <ImageSource x:Key="button_star">/Chapper;component/Images/ButtonsBlack/glyphicons_049_star.png</ImageSource>
+    <ImageSource x:Key="button_unstar">/Chapper;component/Images/ButtonsYellow/glyphicons_049_star.png</ImageSource>
+    <ImageSource x:Key="button_send_post">/Chapper;component/Images/ButtonsBlack/glyphicons_222_share.png</ImageSource>
+    <ImageSource x:Key="button_add_image">/Chapper;component/Images/ButtonsBlack/glyphicons_011_camera.png</ImageSource>
+    <ImageSource x:Key="button_add_link">/Chapper;component/Images/ButtonsBlack/glyphicons_050_link.png</ImageSource>
+    <ImageSource x:Key="button_trash">/Chapper;component/Images/ButtonsBlack/glyphicons_016_bin.png</ImageSource>
+    <ImageSource x:Key="button_preferences">/Chapper;component/Images/ButtonsBlack/glyphicons_136_cogwheel.png</ImageSource>
+    <ImageSource x:Key="button_filter">/Chapper;component/Images/ButtonsBlack/glyphicons_320_filter.png</ImageSource>
+    <ImageSource x:Key="button_close">/Chapper;component/Images/ButtonsBlack/glyphicons_192_circle_remove.png</ImageSource>
+    <ImageSource x:Key="button_minimize">/Chapper;component/Images/ButtonsBlack/glyphicons_191_circle_minus.png</ImageSource>
+    <ImageSource x:Key="button_resize">/Chapper;component/Images/ButtonsBlack/resize.png</ImageSource>
+    <ImageSource x:Key="image_hasReceiver">/Chapper;component/Images/ButtonsBlack/glyphicons_223_chevron-right.png</ImageSource>
+    <ImageSource x:Key="image_search">/Chapper;component/Images/ButtonsBlack/glyphicons_027_search.png</ImageSource>
+
+    <ImageSource x:Key="header_stream">/Chapper;component/Images/ButtonsBlack/glyphicons_114_list.png</ImageSource>
+    <ImageSource x:Key="header_pms">/Chapper;component/Images/ButtonsBlack/glyphicons_010_envelope.png</ImageSource>
+    <ImageSource x:Key="header_mentions">/Chapper;component/Images/ButtonsBlack/at_32x32.png</ImageSource>
+    <ImageSource x:Key="header_interactions">/Chapper;component/Images/ButtonsBlack/loop_alt3_32x24.png</ImageSource>
+    <ImageSource x:Key="header_global">/Chapper;component/Images/ButtonsBlack/glyphicons_370_globe_af.png</ImageSource>
+    <ImageSource x:Key="header_patter">/Chapper;component/Images/Misc/patter.png</ImageSource>
+    <ImageSource x:Key="header_messageroom">/Chapper;component/Images/ButtonsBlack/glyphicons_244_conversation.png</ImageSource>
+
+    <!-- Interaction icons - be aware you need 
+      xmlns:clr="clr-namespace:System;assembly=mscorlib"  
+      at the top declation in order to change it (see first lines of this file
+    -->
+    <clr:String x:Key="interaction_star">/Chapper;component/Images/ButtonsBlack/glyphicons_049_star.png</clr:String>
+    <clr:String x:Key="interaction_reply">/Chapper;component/Images/ButtonsBlack/glyphicons_221_unshare.png</clr:String>
+    <clr:String x:Key="interaction_follow">/Chapper;component/Images/ButtonsBlack/glyphicons_006_user_add.png</clr:String>
+    <clr:String x:Key="interaction_repost">/Chapper;component/Images/ButtonsBlack/glyphicons_080_retweet.png</clr:String>
+</ResourceDictionary>

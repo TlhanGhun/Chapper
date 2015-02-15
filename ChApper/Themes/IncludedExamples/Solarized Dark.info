@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<ThemeInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title>Solarized Dark</title>
+  <author>Sven Walther</author>
+  <version>1.0</version>
+  <description>Solarized is a sixteen color palette (eight monotones, eight accent colors) designed for use with terminal and gui applications by Ethan Schoonover</description>
+  <homepage>http://ethanschoonover.com/solarized</homepage>
+  <useDefaultDarkItems>false</useDefaultDarkItems>
+</ThemeInfo>
+
+

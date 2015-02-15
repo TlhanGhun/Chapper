@@ -1,0 +1,32 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- Colors -->
+    
+    <SolidColorBrush Color="#839496" x:Key="color_text"/>
+    <SolidColorBrush Color="#657b83" x:Key="color_header"/>
+    <SolidColorBrush Color="#657b83" x:Key="color_footer"/>
+    <SolidColorBrush Color="#268bd2" x:Key="color_link"/>
+    <SolidColorBrush Color="#cb4b16" x:Key="color_username"/>
+    <SolidColorBrush Color="#d33682" x:Key="color_hashtag"/>
+    <SolidColorBrush Color="#002b36" x:Key="color_main_background"/>
+    <SolidColorBrush Color="#839496" x:Key="color_main_foreground"/>
+
+    <!-- Images -->
+
+ <!--   <ImageSource x:Key="button_repost">%THEMES_DIR%/Example_Images/repost.png</ImageSource>
+    <ImageSource x:Key="button_send_post">/Chapper;component/Images/ButtonsBlack/glyphicons_080_retweet.png</ImageSource>
+    <ImageSource x:Key="button_add_image">/Chapper;component/Images/ButtonsBlack/glyphicons_011_camera.png</ImageSource>
+    <ImageSource x:Key="button_trash">/Chapper;component/Images/ButtonsBlack/glyphicons_016_bin.png</ImageSource>
+    <ImageSource x:Key="button_preferences">/Chapper;component/Images/ButtonsBlack/glyphicons_136_cogwheel.png</ImageSource> -->
+
+    <!-- Styles -->
+
+    <Style TargetType="Border" x:Key="theme_border_around_item">
+        <Setter Property="CornerRadius" Value="0"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="#839496"/>
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+</ResourceDictionary>

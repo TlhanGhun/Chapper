@@ -1,0 +1,156 @@
+1.6
+Open Source release - removed license checking and API keys
+
+1.5.2
+When Snarl is (re)started Chapper now (re)registers on the fly
+Display of receiver in Patter names removed as wrong anyway with multiple members
+Fix: Patter messages are now sent with the right class name for the Snarl notification
+
+1.5.1
+Fix: Unreliable streaming reconnect on network outages
+
+1.5
+Added search
+Searches can be auto refreshing
+Added option to save a search
+Messages and posts now respect the new length (so messages up to 2048 possible now) automatically (using the configuration endpoint)
+Every search has its own Snarl class
+Global stream display is now off by default
+The display of remaining chars while composing is now at the right side as it is not fixed to max. 3 digits anymore and may need space
+Also the remaining chars are now always shown with full opacity
+Streaming API now only receives PM and Patter (did receive all before ignoring the others)
+When streaming receives a message from a formerly unknown channel this channel is fetched and added to PM / Patter list
+Chapper.exe as well as the setup file are now digitally signed
+If no license has been bought badge is shown on the main window (sorry, but installations vs. purchases are quite disconnected)
+
+1.4
+Added user streaming
+Fixed a bug of continous reload of certain items
+
+1.3.1
+Links are now be send clickable again even when not added as MarkDown-links
+Interacations tab is now before the private messages (so dropdowns are grouped at the end)
+Unified stream is now the default setting on new installations
+All private messages channels are now listed on the dropdown regardless if the API only returns zero items for them
+The user info tab now has a "send private message button"
+Fix: Private messages tab was hidden if Patter was disabled in settings 
+
+1.3
+Filtering added (text, username and language)
+Private messages are now a dropdown menu with all the different channels (like Patter)
+Clicking a hashtag now opens the hashtag search within Chapper (instead of opening alpha)
+Icons in interactions are now also themed to light/dark items regarding to theme
+Icons in main window are now on top of compose box as I ran out of space and will certailnly add more later one
+Fix: Window resize button was hard to use
+Fix: replying to a post sometimes was send as mention without reference to replied item (no conversation visible)
+Character counter now better visible over the compose box
+
+1.2
+Added themes
+Font sizes can now be changed
+Added MarkDown links (both manually entered or using an extra dialog) - use [Title of link](http://www.example.com/)
+Tabs are now represented by icons instead of text (less space needed)
+Patter rooms are now in a drop list to save space on top bar
+Image uploaded are now linked to their filename (can be changed in text using MarkDown syntax)
+Image links are now embedded at current cursor position instead of end of textbox
+When closing a tab Chapper now jumps to the previously selected tab instead of the last one
+Images are now also shown if they are within a repost
+Displaying and sending error messages on posting fail added (optional)
+Completely rewritten code about the compose box (getting post target etc.)
+Direct message button is now hidden if user does not receive your private messages due to privacy settings (you_can_subscribe flag)
+Replying to a post with multiple mentions now also mentions those users      
+Replying to a post with multiple lines now not shows multiple lines as overlay in compose box anymore
+Added mute and block to context menu of user
+Verified domain is now shown in user info
+On personal messages the receiver is displayed if you are the sender
+Deleting your own posts and messages (yes, even in Patter rooms :)) added
+Finally fixed stream markers in my and unfied stream as well as in mentions (they broke in 1.0 final and I did not notice till now...)
+
+1.1
+Added interactions
+Human readable timestamp (xx minutes ago) added to display (when more than three days date is shown)
+Follow / unfollow in user info tab
+Snarl notifcations information now shown in preferences
+Empty tooltip on non-replies removed
+Tooltip on embedded images now says that it is loading the image so user knows that waiting makes sense
+Fix: Snarl notifications have not been shown at all :(
+Fix: Text turned black when an item was selected
+Fix: replying out of a conversation tab did not work
+Dependencies moved to nuget
+Updated .gitignore
+
+1.0.2
+Emergency fix: private message sending was broken
+
+1.0.1
+Position and size of the main window is now saved and restored on next start
+Conversation button now works as expected with private messages
+When adding an image its link is now shown immediately to have correct character count
+Pressing the trash button now switches of the highlighting of the camera button
+Fix: Chapper crashed when you pressed the up or down key
+
+1.0
+! Users of older beta versions will need to reauthorize on start as Chapper now needs permission to store files
+Image adding to posts added (see the small camera icon on bottom right)
+Uses dramatically less RAM and does not extend RAM usage on runtime
+New scoll to item code (stream markers)
+All code now on the latest API settings of App.net (see response envelope in API documentation if interested)
+Fix: timestamps are now shown correct for your local timezone
+Feature complete for what I planned in 1.0 :)
+
+1.0b7 (0.9.3)
+Option to switch from My Stream to Unified Stream
+Conversation view (conversation button shown on post when available)
+If post is a reply a mouse over tooltip shows the post which has been replied to
+Post text is now white while author and bottom info (timestamp, client) is in light gray
+Fix: sometimes only a subset of mentions has been displayed
+
+1.0b6 (0.9.2)     
+! You will need to reauthorize your account as your settings will be resetted
+General Stream added (automatic at 50 newest due to ressource usage)
+Post entering area now has autocomplete for hashtags and usernames
+Patter rooms now have a close button to close the tab (not memorized so far so on next start they are there again)
+Preferences added (for now Patter and General Stream enable / disable)
+Close button on tabs now is an image and looks much better
+The tooltip of tabnames is now only on the header and not on the whole tab
+New scrollbar design
+License handling added (including purchase button on homepage)
+Fix: Reposts are now shown in the right direction (reposter after original poster on header)
+Fix: Update notification buttons are now readable
+Internal: removed all old code based on the name ChApper and changed it to Chapper
+
+1.0b5 (0.9)
+Patter integration (every Patter room gets its own tab, Snarl notifications with own classes)
+ See http://patter-app.net/ about Patter
+Images are shown inline of posts and messages if they are tagged correctly by the sending client
+Minor design changes (e. g. tab headers)
+Fix: sending a private message has been done using a post sometimes
+Fix: tooltips background is now dark so they can be read
+Newer version of Newtonsoft JSON embedded
+
+1.0b4 (0.8.7)
+Check on retrieval if post is empty or marked as deleted (in this case it is not shown)
+Mentions and hashtags can now be clicked
+Username of author and repost author can now be clicked to open user info
+Closable tabs added
+New user info tab added
+Own posts have now avatar image on the right
+
+1.0b3 (0.8.4)
+Client name and link added
+Stream Markers are now saved for My Stream and Mentions (silent, no display)
+Stream Markers are now read on every update and if changed Chapper scrolls to that item (My Stream and Mentions)
+Chapper version number and authorized username are now shown on the window title
+Snarl notifications now not shown on startup but only on later refreshes
+
+1.0b2 (0.8.3)
+Replying, reposting and starring on reposts now apply on the reposted item
+Added Snarl notifications (http://snarl.fullphat.net/)   
+Clickable links (color will be configurable later on...)
+Startmenu link for documentation now points to its own docs (and not the Nymphicus one)
+Preferences are now updated on new version in background automatically
+Images in Setup now with Chapper logo and text
+Setup now checks (and installs if needed) .NET 4.5
+
+1.0b1 (0.8.2)
+First public release

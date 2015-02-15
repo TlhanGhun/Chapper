@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Chapper.Controls.ListBoxItems"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+              xmlns:model="clr-namespace:Chapper.Model"
+        xmlns:controls="clr-namespace:Chapper.Controls"
+        xmlns:converter="clr-namespace:Chapper.Converter" >
+    <Grid>
+        <Grid.Resources>
+            <converter:ItemWidthConverter x:Key="ItemWidthConverter1" />
+            <DataTemplate DataType="{x:Type model:Item}">
+                <controls:ItemBox x:Name="Item" HorizontalAlignment="Stretch" Width="{Binding ElementName=listbox_items, Path=ActualWidth, Mode=OneWay, Converter={StaticResource ItemWidthConverter1}, ConverterParameter=23}" DataContext="{Binding}" Margin="0" />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type model:InteractionEntry}">
+                <controls:InteractionBox x:Name="Item" HorizontalAlignment="Stretch" Width="{Binding ElementName=listbox_items, Path=ActualWidth, Mode=OneWay, Converter={StaticResource ItemWidthConverter1}, ConverterParameter=23}" DataContext="{Binding}" Margin="0" />
+            </DataTemplate>
+        </Grid.Resources>
+        <TreeView Padding="0" Margin="0" Name="listbox_items" ScrollViewer.CanContentScroll="False" VirtualizingPanel.IsVirtualizing="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <TreeView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel></VirtualizingStackPanel>
+                </ItemsPanelTemplate>
+        </TreeView.ItemsPanel>
+        </TreeView>
+    </Grid>
+</UserControl>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ThemeInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title>Monokai</title>
+  <author>Sven Walther</author>
+  <version>1.0</version>
+  <description>Theme based on the Monokai Textmate color theme by Wimer Hazenberg</description>
+  <homepage>http://www.monokai.nl/blog/2006/07/15/textmate-color-theme/</homepage>
+  <useDefaultDarkItems>false</useDefaultDarkItems>
+</ThemeInfo>
+

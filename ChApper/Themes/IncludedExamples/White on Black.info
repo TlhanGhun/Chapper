@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ThemeInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title>White on Black</title>
+  <author>Sven Walther</author>
+  <version>1.0</version>
+  <copyright>Sven Walther 2013</copyright>
+  <description>Basic scheme with high contrast</description>
+  <useDefaultDarkItems>false</useDefaultDarkItems>
+</ThemeInfo>
+
+
+
+
+

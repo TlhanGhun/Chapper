@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Chapper.Controls"
+                    >
+
+    <SolidColorBrush Color="#eee" x:Key="color_text" />
+    <SolidColorBrush Color="#ccc" x:Key="color_header" />
+    <SolidColorBrush Color="#ccc" x:Key="color_footer" />
+    <SolidColorBrush Color="DarkBlue" x:Key="color_link" />
+    <SolidColorBrush Color="DarkGreen" x:Key="color_username" />
+    <SolidColorBrush Color="DarkMagenta" x:Key="color_hashtag" />
+    <SolidColorBrush Color="#333" x:Key="color_main_background" />
+    <SolidColorBrush Color="#eee" x:Key="color_main_foreground" />
+    <SolidColorBrush Color="Black" x:Key="color_selectedTab_background" />
+
+
+</ResourceDictionary>

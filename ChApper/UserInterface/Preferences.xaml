@@ -1,0 +1,125 @@
+﻿<Window x:Class="Chapper.UserInterface.Preferences"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Preferences" Height="585.096" Width="480"
+        xmlns:localSettings="clr-namespace:Chapper.Properties"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:layouts="clr-namespace:Chapper.Layouts"
+       >
+    <Window.Resources>
+        <localSettings:Settings x:Key="settings" />
+        <layouts:Layout x:Key="Layout" />
+    </Window.Resources>
+    <Grid Name="grid_main" DataContext="{StaticResource settings}" >
+        <TabControl Name="tabControl_preferences" Margin="0,0,0,30"  FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}">
+            <TabItem Name="tabItem_general" Header="General">
+                <StackPanel Orientation="Vertical">
+                    <CheckBox Name="checkbox_useUnifiedStream" Content="Use unified stream (changes apply after restart)" IsChecked="{Binding Path=Default.useUnifiedStream, Mode=TwoWay}" FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}" />
+                    <CheckBox Name="checkbox_generalStream" Content="Show General Stream (changes apply after restart)" IsChecked="{Binding Path=Default.showGeneralStream, Mode=TwoWay}" FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}"/>
+                    <CheckBox Name="checkbox_showPatter" Content="Show Patter rooms (changes apply after restart)" IsChecked="{Binding Path=Default.showPatterRooms, Mode=TwoWay}" FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}" />
+                    <CheckBox Name="checkbox_showErrors" Content="Show errors (experimental)" IsChecked="{Binding Path=Default.show_errors, Mode=TwoWay}" FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}" />
+
+                </StackPanel>
+            </TabItem>
+            <TabItem Name="tabItem_notifications" Header="Notifications">
+                <Grid>
+                    <StackPanel Orientation="Vertical">
+                        <Grid>
+                            <Image Height="64" HorizontalAlignment="Left" Margin="10,10,0,0" Name="image_snarl" Stretch="Fill" VerticalAlignment="Top" Width="64" Source="/Chapper;component/Images/Misc/snarl.png" />
+                            <StackPanel Orientation="Vertical" Margin="80,10,0,0" >
+                                <TextBlock  Name="textBlockSnarlDescription" Text="Notifications are displayed using the amazing notification system called Snarl." VerticalAlignment="Top" TextWrapping="Wrap" HorizontalAlignment="Left"  />
+                                <TextBlock Height="16" Margin="0,10,0,0" Name="textBlockSnarlRunningOrNot" Text="Snarl is not running." VerticalAlignment="Top" HorizontalAlignment="Left" Width="143" />
+                            </StackPanel>
+                        </Grid>
+                        <Button Content="Visit Snarl homepage" Height="23" HorizontalAlignment="Left" Margin="10,10,0,0" Name="buttonSnarlHompeage" VerticalAlignment="Top" Width="131" Click="buttonSnarlHompeage_Click" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Name="tabItem_layout" Header="Layout">
+                <Grid Name="gridThemesAndLayout">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock x:Name="textblock_themes_header" Text="Themes" Margin="0,4,0,6" FontWeight="Bold" FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}" ></TextBlock>
+                        <ListBox Name="listbox_themes" Margin="5,0,10,5" SelectionChanged="listbox_themes_SelectionChanged">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Margin="2" Text="{Binding name}" ToolTip="{Binding tooltip}" FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <WrapPanel Orientation="Horizontal" Margin="0,0,15,0">
+                            <Button Name="button_switch_layout" Click="button_switch_layout_Click_1" Content="Load theme" Margin="0,3,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}"  />
+                            <Button Name="button_open_layout_homepage"  
+                                    Content="Open homepage" 
+                                    Margin="5,3,0,0" 
+                                    VerticalAlignment="Top" 
+                                    HorizontalAlignment="Left" 
+                                    Click="button_open_layout_homepage_Click"  
+                                    FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}" 
+                                    Visibility="Collapsed" />
+
+                            <Button Name="button_open_themes_dir"  
+                                    Content="Open themes dir" 
+                                    Margin="5,3,0,0" 
+                                    VerticalAlignment="Top" 
+                                    HorizontalAlignment="Left" 
+                                    Click="button_open_themes_dir_Click"
+                                    FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}" 
+                                    />
+                        </WrapPanel>
+
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" DataContext="{StaticResource Layout}">
+                        <TextBlock x:Name="textblock_fontsize_heading" Text="Font sizes" Margin="0,4,0,6" FontWeight="Bold" FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}" ></TextBlock>
+
+                        <TextBlock x:Name="textblock_fontsize_general" Text="General" Margin="0,0,0,0" FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}" ></TextBlock>
+                        <xctk:IntegerUpDown Value="{Binding Path=CurrentLayout.GeneralFontSize, Mode=TwoWay}" Margin="0,2,20,6" FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}"  />
+
+                        <TextBlock x:Name="textblock_fontsize_content" Text="Post content" Margin="0,0,0,0" FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}" ></TextBlock>
+                        <xctk:IntegerUpDown Value="{Binding Path=CurrentLayout.ItemBoxFontSizeContent, Mode=TwoWay}" Margin="0,2,20,6" FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}" />
+
+                        <TextBlock x:Name="textblock_fontsize_header" Text="Post header" Margin="0,0,0,0" FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}" ></TextBlock>
+                        <xctk:IntegerUpDown Value="{Binding Path=CurrentLayout.ItemBoxFontSizeHeader, Mode=TwoWay}" Margin="0,2,20,6" FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}" />
+
+                        <TextBlock x:Name="textblock_fontsize_footer" Text="Post footer" Margin="0,0,0,0" FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}" ></TextBlock>
+                        <xctk:IntegerUpDown Value="{Binding Path=CurrentLayout.ItemBoxFontSizeFooter, Mode=TwoWay}" Margin="0,2,20,6" FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}"  />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Name="tabItem_about" Header="About">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Name="textblock_chapperNameAndVersion" Text="This is Chapper 1.0 by @lighun" />
+                    <RichTextBox Name="richtext_credits" Margin="0,6" IsReadOnly="True" IsDocumentEnabled="True">
+                        <FlowDocument>
+                            <Paragraph>
+                                Chapper is developed by
+                                <Hyperlink NavigateUri="https://alpha.app.net/lighun" Click="Hyperlink_Click_1" Cursor="Hand">@lighun</Hyperlink>
+                            </Paragraph>
+
+                            <Paragraph>
+                                It is based on the Open Source .NET library also developed by
+                                <Hyperlink NavigateUri="https://alpha.app.net/lighun" Click="Hyperlink_Click_1" Cursor="Hand">@lighun</Hyperlink> available at
+                                <Hyperlink NavigateUri="https://github.com/liGhun/AppNet.NET" Click="Hyperlink_Click_1" Cursor="Hand">https://github.com/liGhun/AppNet.NET</Hyperlink>.
+                            </Paragraph>
+
+                            <Paragraph>
+                                All the JSON parsing and creation stuff is done using
+                                <Hyperlink NavigateUri="http://james.newtonking.com/pages/json-net.aspx" Click="Hyperlink_Click_1" Cursor="Hand" >Json.NET</Hyperlink> by James Newton-King.
+                            </Paragraph>
+                            <Paragraph>
+                                The used icons are from the
+                                <Hyperlink NavigateUri="http://glyphicons.com/" Click="Hyperlink_Click_1" Cursor="Hand" >Glyphicons set</Hyperlink>.
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                </StackPanel>
+            </TabItem>
+            
+        </TabControl>
+        <Button Content="Save and close window" Name="button_save" Margin="0,0,9.6,4.8" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Click="button_save_Click_1" FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}" />
+    </Grid>
+</Window>

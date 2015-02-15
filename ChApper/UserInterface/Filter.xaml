@@ -1,0 +1,24 @@
+﻿<Window x:Class="Chapper.UserInterface.Filter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Filter" Height="133.673" Width="380.612"
+            WindowStyle="None" AllowsTransparency="True"
+    Background="Transparent"
+        Topmost="True"
+        xmlns:ui="clr-namespace:Chapper.UserInterface"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+    <Border Name="border_around_add_image_window" Style="{DynamicResource theme_border_around_main_window}">
+        <Grid Style="{DynamicResource theme_grid_main}">
+            <StackPanel Name="stackpanel_filter" HorizontalAlignment="Stretch">
+                <TextBlock Name="textblock_header" Text="Filter" FontSize="14" FontWeight="Bold"/>
+                <xctk:WatermarkTextBox Name="textbox_filter_string" Watermark="Filter by item text and username..." FontSize="14" TextChanged="textbox_filter_string_TextChanged" />
+                <VirtualizingStackPanel Orientation="Horizontal">
+                    <TextBlock Name="textblock_language" Text="Language: " FontSize="14" />
+                    <ComboBox Name="combobox_language" SelectionChanged="combobox_language_SelectionChanged" FontSize="14" Width="40" HorizontalAlignment="Left" Margin="0,0,8,0" />
+                    <CheckBox Name="checkbox_language_exclude_empty" Checked="checkbox_language_exclude_empty_Checked" Unchecked="checkbox_language_exclude_empty_Unchecked" VerticalAlignment="Center" Content="Also show items without language tag" />
+                </VirtualizingStackPanel>
+            </StackPanel>
+            <Button Content="Close" Height="34" VerticalAlignment="Bottom" Click="Button_Click"/>
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,337 @@
+﻿<Window x:Class="Chapper.MainWindow"
+        Name="window_main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Chapper" Height="691.493" Width="552.463"
+        Closing="window_main_Closing_1"
+        xmlns:model="clr-namespace:Chapper.Model"
+        xmlns:controls="clr-namespace:Chapper.Controls"
+        xmlns:layouts="clr-namespace:Chapper.Layouts"
+        xmlns:converter="clr-namespace:Chapper.Converter" 
+        Icon="pack://siteoforigin:,,,/Images/Artwork/ChapperIcon.ico" 
+        AllowsTransparency="True" Background="Transparent" WindowStyle="None"
+        >
+    <Window.Resources>
+        <layouts:Layout x:Key="Layout" />
+    </Window.Resources>
+    <Grid Name="grid_all_around" Background="Transparent">
+        <Thumb Name="thumb_resize" Background="Transparent" Opacity="0" DragDelta="thumb_resize_DragDelta" Width="20" Height="20"  VerticalAlignment="Bottom" 
+                   HorizontalAlignment="Right" Panel.ZIndex="999999" Cursor="SizeNWSE" ToolTip="Resize window" Margin="0,0,1,1"  Padding="0"  />
+
+
+
+        <Border Name="border_around_main_window" Style="{DynamicResource theme_border_around_main_window}" MouseMove="border_around_main_window_MouseMove" Cursor="SizeAll">
+
+            <Grid Name="grid_main" Style="{DynamicResource theme_grid_main}" Cursor="Arrow">
+                <Grid.Resources>
+                    <converter:ItemWidthConverter x:Key="ItemWidthConverter1" />
+                    <DataTemplate DataType="{x:Type model:Item}">
+                        <controls:ItemBox x:Name="Item" HorizontalAlignment="Stretch" Width="{Binding ElementName=listbox_myStream, Path=ActualWidth, Mode=OneWay, Converter={StaticResource ItemWidthConverter1}, ConverterParameter=23}" DataContext="{Binding}" />
+                    </DataTemplate>
+
+                </Grid.Resources>
+                <Border Name="border_around_error_message" Margin="7,0,24.8,84.2" Padding="5" Background="Red" Opacity="0.9" Panel.ZIndex="10000" CornerRadius="5" Height="90" VerticalAlignment="Bottom" Visibility="Collapsed" >
+                    <Grid Name="grid_error_message" Background="Red">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Name="textblock_error_message_title" FontWeight="Bold" TextWrapping="Wrap"></TextBlock>
+                            <TextBlock Name="textblock_error_description" TextWrapping="Wrap"></TextBlock>
+
+                        </StackPanel>
+                        <StackPanel Name="stackpanel_error_buttons" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="22">
+                            <Button Name="button_error_dismiss" Content="Dismiss" Margin="0,0,10,0" Click="button_error_dismiss_Click" />
+                            <Button Name="button_error_send_to_lighun" Content="Send to developer" Click="button_error_send_to_lighun_Click"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Button Name="button_close_window" Width="14" Height="14" 
+                    VerticalAlignment="Top" HorizontalAlignment="Right" 
+                    Click="button_close_window_Click" Panel.ZIndex="9999"
+                    ToolTip="Close window">
+                    <Image Source="{DynamicResource button_close}">
+                        <Image.Style>
+                            <Style>
+                                <Setter Property="Image.Opacity" Value="0.6" />
+                                <Style.Triggers>
+                                    <Trigger  Property="Image.IsMouseOver" Value="True">
+                                        <Setter Property="Image.Opacity" Value="1" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <ContentPresenter Content="{TemplateBinding Content}" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Name="button_minimize_window" Width="14" Height="14" 
+                    VerticalAlignment="Top" HorizontalAlignment="Right" 
+                    Click="button_minimize_window_Click" Panel.ZIndex="9999" Margin="0,0,17,0"
+                    ToolTip="Minimize window">
+                    <Image Source="{DynamicResource button_minimize}">
+                        <Image.Style>
+                            <Style>
+                                <Setter Property="Image.Opacity" Value="0.6" />
+                                <Style.Triggers>
+                                    <Trigger  Property="Image.IsMouseOver" Value="True">
+                                        <Setter Property="Image.Opacity" Value="1" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <ContentPresenter Content="{TemplateBinding Content}" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <TabControl  FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}" Name="tabControl_main" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0.8,98.2" SelectionChanged="tabControl_main_SelectionChanged_1">
+                    <TabItem Name="tabItem_mainStream" >
+                        <TabItem.Header>
+                            <Image ToolTip="My Stream" x:Name="image_headerStream" Source="{DynamicResource header_stream}" Height="16" />
+                        </TabItem.Header>
+                        <Grid>
+                            <controls:ListBoxItems x:Name="listbox_myStream" />
+                        </Grid>
+                    </TabItem>
+                    <TabItem Name="tabItem_mentions">
+                        <TabItem.Header>
+                            <Image ToolTip="Mentions" x:Name="image_headerMentions" Source="{DynamicResource header_mentions}" Height="16" />
+                        </TabItem.Header>
+                        <Grid>
+                            <controls:ListBoxItems x:Name="listbox_mentions" />
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem x:Name="tabitem_interactions" >
+                        <TabItem.Header>
+                            <Image ToolTip="Interactions" x:Name="image_headerInteractions" Source="{DynamicResource header_interactions}" Height="16" />
+                        </TabItem.Header>
+                        <Grid>
+                            <controls:ListBoxItems x:Name="listbox_interactions"/>
+                        </Grid>
+                    </TabItem>
+                    
+                    <TabItem Name="tabItem_pm">
+                        <TabItem.Header>
+                            <StackPanel ToolTip="Private message channels" Name="stackpanel_header_private_messages" Orientation="Horizontal">
+                                <Image ToolTip="Private Messages" x:Name="image_headerPms" Source="{DynamicResource header_pms}" Height="16" Margin="0,0,4,0"/>
+                                <ComboBox Name="combobox_private_message_channel" VerticalAlignment="Top" FontSize="10" Padding="2" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <Grid>
+                            <controls:ListBoxItems x:Name="listbox_privateMessages" />
+                        </Grid>
+                    </TabItem>
+                    
+                    <TabItem Name="tabItem_global">
+                        <TabItem.Header>
+                            <Image ToolTip="Global Stream" x:Name="image_headerGlobalStream" Source="{DynamicResource header_global}" Height="16" />
+                        </TabItem.Header>
+                        <Grid>
+                            <controls:ListBoxItems x:Name="listbox_globalStream" />
+                        </Grid>
+                    </TabItem>
+                    <TabItem Name="tabItem_patter">
+                        <TabItem.Header>
+                            <StackPanel ToolTip="Patter Rooms" Name="stackpanel_header_patterroms" Orientation="Horizontal">
+                                <Image x:Name="image_headerPatter" Source="{DynamicResource header_patter}" Height="16" Margin="0,0,4,0" />
+                                <ComboBox Name="combobox_patterrooms" VerticalAlignment="Top" FontSize="10" Padding="2" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <Grid>
+                            <controls:ListBoxItems x:Name="listbox_patter" />
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+                <controls:AutoCompleteTextbox Height="80" x:Name="textbox_postText"  Margin="0,0,1.8,-0.8" 
+                                          VerticalAlignment="Bottom" Padding="6" GotFocus="textbox_postText_GotFocus_1" 
+                                          LostFocus="textbox_postText_LostFocus_1" PreviewKeyDown="textbox_postText_PreviewKeyDown_1" 
+                                          FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}"/>
+                <VirtualizingStackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Height="16" Margin="10,0,1.8,79.2">
+                   
+                    <Button Name="button_sendPost" IsEnabled="False" 
+                    HorizontalAlignment="Right" 
+                    Margin="0,0,6,0" 
+                    VerticalAlignment="Bottom" Width="12" Height="12" 
+                    ToolTip="Send... (Ctrl + Enter)" Click="button_sendPost_Click_1">
+                        <Image x:Name="image_buttonSend" Source="{DynamicResource button_send_post}">
+                            <Image.Style>
+                                <Style>
+                                    <Setter Property="Image.Opacity" Value="0.6" />
+                                    <Style.Triggers>
+                                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                                            <Setter Property="Image.Opacity" Value="1" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <ContentPresenter Content="{TemplateBinding Content}" />
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button Name="button_addImage" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,6,0" Width="12" Height="12" ToolTip="Add image to post..." Click="button_addImage_Click_1">
+                        <Image x:Name="image_addImage" Source="{DynamicResource button_add_image}">
+                            <Image.Style>
+                                <Style>
+                                    <Setter Property="Image.Opacity" Value="0.6" />
+                                    <Style.Triggers>
+                                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                                            <Setter Property="Image.Opacity" Value="1" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <ContentPresenter Content="{TemplateBinding Content}" />
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button Name="button_addLink" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,6,0" Width="12" Height="12" ToolTip="Insert link..." Click="button_addLink_Click">
+                        <Image x:Name="image_addLink" Source="{DynamicResource button_add_link}">
+                            <Image.Style>
+                                <Style>
+                                    <Setter Property="Image.Opacity" Value="0.6" />
+                                    <Style.Triggers>
+                                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                                            <Setter Property="Image.Opacity" Value="1" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <ContentPresenter Content="{TemplateBinding Content}" />
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button Name="button_trashPost" IsEnabled="False" Margin="0,0,6,0" VerticalAlignment="Bottom" Width="12" Height="12" ToolTip="Trash..." Click="button_trashPost_Click_1">
+                        <Image x:Name="image_buttonTrash" Source="{DynamicResource button_trash}">
+                            <Image.Style>
+                                <Style>
+                                    <Setter Property="Image.Opacity" Value="0.6" />
+                                    <Style.Triggers>
+                                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                                            <Setter Property="Image.Opacity" Value="1" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <ContentPresenter Content="{TemplateBinding Content}" />
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button Name="button_openSettings" Margin="0,0,6,0" VerticalAlignment="Bottom" Width="12" Height="12" ToolTip="Open preferences" Click="button_openSettings_Click_1">
+                        <Image x:Name="image_buttonPreferenes" Source="{DynamicResource button_preferences}">
+                            <Image.Style>
+                                <Style>
+                                    <Setter Property="Image.Opacity" Value="0.6" />
+                                    <Style.Triggers>
+                                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                                            <Setter Property="Image.Opacity" Value="1" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <ContentPresenter Content="{TemplateBinding Content}" />
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button Name="button_filter" Margin="0,0,6,0" VerticalAlignment="Bottom" Width="12" Height="12" ToolTip="Filter" Click="button_filter_Click">
+                        <Image x:Name="image_buttonFilter" Source="{DynamicResource button_filter}">
+                            <Image.Style>
+                                <Style>
+                                    <Setter Property="Image.Opacity" Value="0.6" />
+                                    <Style.Triggers>
+                                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                                            <Setter Property="Image.Opacity" Value="1" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <ContentPresenter Content="{TemplateBinding Content}" />
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button Name="button_search" Margin="0,0,6,0" VerticalAlignment="Bottom" Width="12" Height="12" ToolTip="Search posts" Click="button_search_Click">
+                        <Image x:Name="image_search" Source="{DynamicResource image_search}">
+                            <Image.Style>
+                                <Style>
+                                    <Setter Property="Image.Opacity" Value="0.6" />
+                                    <Style.Triggers>
+                                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                                            <Setter Property="Image.Opacity" Value="1" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <ContentPresenter Content="{TemplateBinding Content}" />
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <TextBlock Visibility="Collapsed" Name="textblock_language" Text="Post language: " VerticalAlignment="Bottom" FontSize="11" />
+                    <ComboBox Visibility="Collapsed" Name="combobox_language" VerticalAlignment="Bottom" FontSize="10" SelectionChanged="combobox_language_SelectionChanged" />
+                    <TextBlock Name="textblock_remainingChars" Text="255" VerticalAlignment="Bottom" 
+                       HorizontalAlignment="Left" Margin="4,3,6,0" FontWeight="Bold" Opacity="0.6"
+                       FontSize="{Binding CurrentLayout.GeneralFontSize, Source={StaticResource Layout}}"
+                       Foreground="{DynamicResource color_overlays_composebox}" />
+                </VirtualizingStackPanel>
+                <TextBlock Name="textblock_enterPostHere" IsHitTestVisible="False" HorizontalAlignment="Left" 
+                       Margin="10,0,0,58.2" TextWrapping="Wrap" Text="Enter your post..." VerticalAlignment="Bottom" 
+                       Opacity="0.6" FontStyle="Italic" 
+                       FontSize="{Binding CurrentLayout.ItemBoxFontSizeFooter, Source={StaticResource Layout}}" 
+                       Foreground="{DynamicResource color_overlays_composebox}"/>
+                <TextBlock Name="textblock_composeOverlay" IsHitTestVisible="False" HorizontalAlignment="Left"  
+                       Margin="10,0,20,8.2" TextWrapping="NoWrap" Text="" VerticalAlignment="Bottom" Opacity="0.4" 
+                       FontStyle="Italic" FontSize="{Binding CurrentLayout.ItemBoxFontSizeFooter, Source={StaticResource Layout}}" 
+                       Foreground="{DynamicResource color_overlays_composebox}"/>
+                <Image x:Name="image_window_resize" Source="{DynamicResource button_resize}" 
+                   Cursor="SizeNWSE"
+                   Margin="0,0,1,1"
+                       
+                   Width="12" Height="12" VerticalAlignment="Bottom" 
+                   HorizontalAlignment="Right" Opacity="0.2"
+             
+                   
+                   >
+                    <Image.Style>
+                        <Style>
+                            <Setter Property="Image.Opacity" Value="0.6" />
+                            <Style.Triggers>
+                                <Trigger  Property="Image.IsMouseOver" Value="True">
+                                    <Setter Property="Image.Opacity" Value="1" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                </Grid>
+
+        </Border>
+    </Grid>
+</Window>

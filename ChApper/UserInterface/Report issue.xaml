@@ -1,0 +1,36 @@
+﻿<Window x:Class="Chapper.UserInterface.Report_issue"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Report_issue" Height="336" Width="516">
+    <Border Name="border_around_main_window" Style="{DynamicResource theme_border_around_main_window}">
+
+        <Grid Name="grid_main" Style="{DynamicResource theme_grid_main}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="6" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Title" HorizontalAlignment="Right"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Comment" HorizontalAlignment="Right"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Description" HorizontalAlignment="Right"/>
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Stacktrace" HorizontalAlignment="Right"/>
+
+            <TextBox Name="textbox_title" Grid.Row="0" Grid.Column="2"/>
+            <TextBox Name="textbox_comment" Grid.Row="1" Grid.Column="2"/>
+            <TextBox Name="textbox_description" Grid.Row="2" Grid.Column="2"/>
+            <TextBox Name="textbox_stacktrace" Grid.Row="3" Grid.Column="2"/>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <CheckBox Name="checkbox_subscribe_to_issue_channel" Content="Subscribe to Chapper issue channel" Margin="0,0,10,0" />
+                <Button Name="button_send" Content="Send" Click="button_send_Click"></Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

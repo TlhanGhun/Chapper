@@ -1,0 +1,61 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Chapper.Controls">
+    
+    <!-- Colors -->
+    
+    <SolidColorBrush Color="#000" x:Key="color_text"/>
+    <SolidColorBrush Color="#333" x:Key="color_header"/>
+    <SolidColorBrush Color="#333" x:Key="color_footer"/>
+    <SolidColorBrush Color="DarkBlue" x:Key="color_link"/>
+    <SolidColorBrush Color="DarkGreen" x:Key="color_username"/>
+    <SolidColorBrush Color="DarkMagenta" x:Key="color_hashtag"/>
+    <SolidColorBrush Color="#88f" x:Key="color_main_background"/>
+    <SolidColorBrush Color="#000" x:Key="color_main_foreground"/>
+    <SolidColorBrush Color="Yellow" x:Key="color_link_client"/>
+    <SolidColorBrush Color="Red" x:Key="color_overlays_composebox"/>
+    <SolidColorBrush Color="White" x:Key="color_unselectedTab_foreground"/>
+    <SolidColorBrush Color="Transparent" x:Key="color_unselectedTab_background"/>
+    <SolidColorBrush Color="#bbb" x:Key="color_selectedTab_foreground"/>
+    <SolidColorBrush Color="LightGray" x:Key="color_selectedTab_background"/>
+    <SolidColorBrush Color="LightGray" x:Key="color_border_around_window"/>
+    <SolidColorBrush Color="DarkGray" x:Key="color_border_around_item"/>
+
+    <!-- Images -->
+
+    <ImageSource x:Key="button_repost">%THEMES_DIR%/Example_Images/repost.png</ImageSource>
+
+<!--
+    <ImageSource x:Key="button_send_post">/Chapper;component/Images/ButtonsBlack/glyphicons_080_retweet.png</ImageSource>
+    <ImageSource x:Key="button_add_image">/Chapper;component/Images/ButtonsBlack/glyphicons_011_camera.png</ImageSource>
+    <ImageSource x:Key="button_trash">/Chapper;component/Images/ButtonsBlack/glyphicons_016_bin.png</ImageSource>
+    <ImageSource x:Key="button_preferences">/Chapper;component/Images/ButtonsBlack/glyphicons_136_cogwheel.png</ImageSource> -->
+
+    <!-- Styles -->
+    
+    <Style x:Key="theme_textbox_compose_area">
+        <Setter Property="TextBox.Background" Value="Yellow"/>
+    </Style>
+    
+    <Style TargetType="Border" x:Key="theme_border_around_item">
+        <Setter Property="CornerRadius" Value="5"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="Orange"/> 
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush>
+                    <GradientStop Color="#aaa" Offset="0"/>
+                    <GradientStop Color="#ddd" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Margin" Value="0,0,0,8"/>
+    </Style>
+
+
+    <Style x:Key="theme_grid_around_item">
+        <Setter Property="Grid.Background" Value="Transparent"/>
+    </Style>
+
+</ResourceDictionary>
+

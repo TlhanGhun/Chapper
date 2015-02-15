@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<ThemeInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title>Orange Sundown</title>
+  <author>Sven Walther</author>
+  <copyright>Sven Walther 2013</copyright>
+  <version>1.0</version>
+  <description>Minimalistic light theme with an orange header line</description>
+  <homepage>http://www.nymphicusapp.com/chapper/</homepage>
+  <useDefaultDarkItems>true</useDefaultDarkItems>
+</ThemeInfo>
+

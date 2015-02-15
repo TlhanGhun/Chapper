@@ -1,0 +1,386 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:clr="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Colors -->
+    
+    <SolidColorBrush Color="#eee" x:Key="color_text" />
+    <SolidColorBrush Color="#ccc" x:Key="color_header" />
+    <SolidColorBrush Color="#ccc" x:Key="color_footer" />
+    <SolidColorBrush Color="DarkBlue" x:Key="color_link" />
+    <SolidColorBrush Color="DarkGreen" x:Key="color_username" />
+    <SolidColorBrush Color="DarkMagenta" x:Key="color_hashtag" />
+    <SolidColorBrush Color="#333" x:Key="color_main_background" />
+    <SolidColorBrush Color="#eee" x:Key="color_main_foreground" />
+    <SolidColorBrush Color="LightBlue" x:Key="color_link_client" />
+    <SolidColorBrush Color="White" x:Key="color_overlays_composebox" />
+    <SolidColorBrush Color="White" x:Key="color_unselectedTab_foreground" />
+    <SolidColorBrush Color="Transparent" x:Key="color_unselectedTab_background" />
+    <SolidColorBrush Color="#bbb" x:Key="color_selectedTab_foreground" />
+    <SolidColorBrush Color="Black" x:Key="color_selectedTab_background" />
+    <SolidColorBrush Color="LightGray" x:Key="color_border_around_window" />
+    <SolidColorBrush Color="DarkGray" x:Key="color_border_around_item" />
+    <SolidColorBrush Color="Black" x:Key="color_foreground_scrollbar" />
+    <SolidColorBrush Color="Gray" x:Key="color_background_scrollbar" />
+    <SolidColorBrush Color="Black" x:Key="color_userinfo_description_background" />
+
+
+    <!-- Images -->
+
+    <ImageSource x:Key="button_repost">/Chapper;component/Images/ButtonsWhite/glyphicons_080_retweet.png</ImageSource>
+    <ImageSource x:Key="button_unrepost">/Chapper;component/Images/ButtonsYellow/glyphicons_080_retweet.png</ImageSource>
+    <ImageSource x:Key="button_reply">/Chapper;component/Images/ButtonsWhite/glyphicons_221_unshare.png</ImageSource>
+    <ImageSource x:Key="button_send_message">/Chapper;component/Images/ButtonsWhite/glyphicons_010_envelope.png</ImageSource>
+    <ImageSource x:Key="button_show_conversation">/Chapper;component/Images/ButtonsWhite/glyphicons_244_conversation.png</ImageSource>
+    <ImageSource x:Key="button_quote">/Chapper;component/Images/ButtonsWhite/quote.png</ImageSource>
+    <ImageSource x:Key="button_star">/Chapper;component/Images/ButtonsWhite/glyphicons_049_star.png</ImageSource>
+    <ImageSource x:Key="button_unstar">/Chapper;component/Images/ButtonsYellow/glyphicons_049_star.png</ImageSource>
+    <ImageSource x:Key="button_send_post">/Chapper;component/Images/ButtonsWhite/glyphicons_222_share.png</ImageSource>
+    <ImageSource x:Key="button_add_image">/Chapper;component/Images/ButtonsWhite/glyphicons_011_camera.png</ImageSource>
+    <ImageSource x:Key="button_add_link">/Chapper;component/Images/ButtonsWhite/glyphicons_050_link.png</ImageSource>
+    <ImageSource x:Key="button_trash">/Chapper;component/Images/ButtonsWhite/glyphicons_016_bin.png</ImageSource>
+    <ImageSource x:Key="button_preferences">/Chapper;component/Images/ButtonsWhite/glyphicons_136_cogwheel.png</ImageSource>
+    <ImageSource x:Key="button_close">/Chapper;component/Images/ButtonsWhite/glyphicons_192_circle_remove.png</ImageSource>
+    <ImageSource x:Key="button_filter">/Chapper;component/Images/ButtonsWhite/glyphicons_320_filter.png</ImageSource>
+    <ImageSource x:Key="button_minimize">/Chapper;component/Images/ButtonsWhite/glyphicons_191_circle_minus.png</ImageSource>
+    <ImageSource x:Key="button_resize">/Chapper;component/Images/ButtonsWhite/resize.png</ImageSource>
+    <ImageSource x:Key="image_hasReceiver">/Chapper;component/Images/ButtonsWhite/glyphicons_223_chevron-right.png</ImageSource>
+    <ImageSource x:Key="image_search">/Chapper;component/Images/ButtonsWhite/glyphicons_027_search.png</ImageSource>
+    
+
+    <ImageSource x:Key="header_stream">/Chapper;component/Images/ButtonsWhite/glyphicons_114_list.png</ImageSource>
+    <ImageSource x:Key="header_pms">/Chapper;component/Images/ButtonsWhite/glyphicons_010_envelope.png</ImageSource>
+    <ImageSource x:Key="header_mentions">/Chapper;component/Images/ButtonsWhite/at_32x32.png</ImageSource>
+    <ImageSource x:Key="header_interactions">/Chapper;component/Images/ButtonsWhite/loop_alt3_32x24.png</ImageSource>
+    <ImageSource x:Key="header_global">/Chapper;component/Images/ButtonsWhite/glyphicons_370_globe_af.png</ImageSource>
+    <ImageSource x:Key="header_patter">/Chapper;component/Images/Misc/patter.png</ImageSource>
+    <ImageSource x:Key="header_messageroom">/Chapper;component/Images/ButtonsWhite/glyphicons_244_conversation.png</ImageSource>
+
+    <!-- Interaction icons - be aware you need 
+      xmlns:clr="clr-namespace:System;assembly=mscorlib"  
+      at the top declation in order to change it (see first lines of this file
+    -->
+    <clr:String x:Key="interaction_star">/Chapper;component/Images/ButtonsWhite/glyphicons_049_star.png</clr:String>
+    <clr:String x:Key="interaction_reply">/Chapper;component/Images/ButtonsWhite/glyphicons_221_unshare.png</clr:String>
+    <clr:String x:Key="interaction_follow">/Chapper;component/Images/ButtonsWhite/glyphicons_006_user_add.png</clr:String>
+    <clr:String x:Key="interaction_repost">/Chapper;component/Images/ButtonsWhite/glyphicons_080_retweet.png</clr:String>
+
+
+    <!-- Item box -->
+
+    <Style TargetType="Border" x:Key="theme_border_around_item">
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource color_border_around_item}" />
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+
+    <Style x:Key="theme_border_around_main_window">
+        <Setter Property="Border.CornerRadius" Value="3" />
+        <Setter Property="Border.BorderThickness" Value="2" />
+        <Setter Property="Border.BorderBrush" Value="{DynamicResource color_border_around_window}" />
+        <Setter Property="Border.Background" Value="{DynamicResource color_main_background}" />
+        <Setter Property="Border.Opacity" Value="1.0" />
+    </Style>
+    
+    <Style x:Key="theme_grid_main">
+        <Setter Property="Grid.Margin" Value="3" />
+    </Style>
+
+    <Style x:Key="theme_textbox_compose_area">
+        <Setter Property="TextBox.Background" Value="Transparent"/>
+        <Setter Property="TextBox.Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"/>
+        <Setter Property="TextBox.BorderThickness" Value="1" />
+        <Setter Property="TextBox.BorderBrush" Value="{DynamicResource ResourceKey=color_main_foreground}" />
+    </Style>
+
+    <Style TargetType="Grid" x:Key="theme_grid_around_item">
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+
+
+    <Style TargetType="{x:Type Window}">
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=color_main_background}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"></Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=color_main_background}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"></Setter>
+    </Style>
+
+    <Style TargetType="{x:Type CheckBox}">
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"></Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Grid}">
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=color_main_background}"></Setter>
+
+    </Style>
+
+    <Style TargetType="{x:Type ToolTip}">
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=color_main_background}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"></Setter>
+    </Style>
+
+
+    <Style TargetType="{x:Type TreeView}">
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=color_main_background}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
+
+    <Style TargetType="{x:Type TreeViewItem}">
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=color_main_background}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TreeViewItem}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Border Name="Bd"
+                              Grid.Column="1"                                
+                              Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              Padding="{TemplateBinding Padding}">
+                            <ContentPresenter x:Name="PART_Header"
+                                        ContentSource="Header"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                        </Border>
+                        <ItemsPresenter x:Name="ItemsHost"
+                          Grid.Row="1"
+                          Grid.Column="1"
+                          Grid.ColumnSpan="2"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsExpanded" Value="false">
+                            <Setter TargetName="ItemsHost" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="HasHeader" Value="false"/>
+                                <Condition Property="Width" Value="Auto"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="PART_Header" Property="MinWidth" Value="75"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="HasHeader" Value="false"/>
+                                <Condition Property="Height" Value="Auto"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="PART_Header" Property="MinHeight" Value="19"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ResourceKey=color_main_background}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="true"/>
+                                <Condition Property="IsSelectionActive" Value="false"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ResourceKey=color_main_background}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+    <Style TargetType="{x:Type TextBox}">
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=color_main_background}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+    </Style>
+
+    <Style TargetType="{x:Type RichTextBox}">
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=color_main_background}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}">
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"></Setter>
+    </Style>
+
+
+    <Style TargetType="{x:Type TabControl}">
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=color_main_background}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+    </Style>
+    
+    <Style TargetType="{x:Type ComboBoxItem}">
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=color_main_background}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"></Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ComboBox}">
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=color_main_background}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"></Setter>
+       
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="MinWidth" Value="60"/>
+            <Setter Property="UIElement.SnapsToDevicePixels" Value="True"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"/>
+            <Setter Property="FrameworkElement.FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
+    <Style TargetType="{x:Type ListBoxItem}">
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=color_main_background}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"></Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ListBox}">
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=color_main_background}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_main_foreground}"></Setter>
+    </Style>
+
+
+    <Style TargetType="{x:Type TabItem}">
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=color_unselectedTab_background}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_unselectedTab_foreground}"></Setter>
+        <Setter Property="BorderThickness" Value="0,0,1,0"></Setter>
+        <Setter Property="BorderBrush" Value="#888"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabItem}">
+                    <Grid>
+                        <Border Name="Border" Background="{DynamicResource ResourceKey=color_unselectedTab_background}" BorderBrush="#aaa"  BorderThickness="0,0,1,1"  Margin="0,0,0,3" CornerRadius="0" >
+                            <ContentPresenter x:Name="ContentSite" VerticalAlignment="Top"  HorizontalAlignment="Center" ContentSource="Header" Margin="3"/>
+                        </Border>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Foreground" 
+                                    Value="{DynamicResource ResourceKey=color_selectedTab_foreground}" />
+                            <Setter TargetName="Border" Property="Background" 
+                                    Value="{DynamicResource ResourceKey=color_selectedTab_background}" />
+                            <Setter TargetName="ContentSite" Property="Margin" Value="3" />
+                        </Trigger>
+
+                        <Trigger Property="IsSelected" Value="False">
+                            <Setter TargetName="Border" Property="Background" 
+                                    Value="{DynamicResource ResourceKey=color_unselectedTab_background}" />
+                            <Setter Property="Foreground" 
+                                    Value="{DynamicResource ResourceKey=color_unselectedTab_foreground}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+
+    <!--Scrollbar Thumbs-->
+    <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Grid x:Name="Grid">
+                        <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Fill="Transparent" />
+                        <Border x:Name="Rectangle1" CornerRadius="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto"  Background="{TemplateBinding Background}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Tag" Value="Horizontal">
+                            <Setter TargetName="Rectangle1" Property="Width" Value="Auto" />
+                            <Setter TargetName="Rectangle1" Property="Height" Value="7" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--ScrollBars-->
+    <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+        <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=color_foreground_scrollbar}" />
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=color_background_scrollbar}" />
+        <Setter Property="Width" Value="8" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollBar}">
+                    <Grid x:Name="GridRoot" Width="10" Background="{TemplateBinding Background}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.00001*" />
+                        </Grid.RowDefinitions>
+
+                        <Track x:Name="PART_Track" Grid.Row="0" IsDirectionReversed="true" Focusable="false">
+                            <Track.Thumb>
+                                <Thumb x:Name="Thumb" Background="{TemplateBinding Foreground}" Style="{DynamicResource ScrollThumbs}" />
+                            </Track.Thumb>
+                            <Track.IncreaseRepeatButton>
+                                <RepeatButton x:Name="PageUp" Command="ScrollBar.PageDownCommand" Opacity="0" Focusable="false" />
+                            </Track.IncreaseRepeatButton>
+                            <Track.DecreaseRepeatButton>
+                                <RepeatButton x:Name="PageDown" Command="ScrollBar.PageUpCommand" Opacity="0" Focusable="false" />
+                            </Track.DecreaseRepeatButton>
+                        </Track>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger SourceName="Thumb" Property="IsMouseOver" Value="true">
+                            <Setter Value="{DynamicResource ButtonSelectBrush}" TargetName="Thumb" Property="Background" />
+                        </Trigger>
+                        <Trigger SourceName="Thumb" Property="IsDragging" Value="true">
+                            <Setter Value="{DynamicResource DarkBrush}" TargetName="Thumb" Property="Background" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="Thumb" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="Orientation" Value="Horizontal">
+                            <Setter TargetName="GridRoot" Property="LayoutTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="-90" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="PART_Track" Property="LayoutTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="-90" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Width" Value="Auto" />
+                            <Setter Property="Height" Value="12" />
+                            <Setter TargetName="Thumb" Property="Tag" Value="Horizontal" />
+                            <Setter TargetName="PageDown" Property="Command" Value="ScrollBar.PageLeftCommand" />
+                            <Setter TargetName="PageUp" Property="Command" Value="ScrollBar.PageRightCommand" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

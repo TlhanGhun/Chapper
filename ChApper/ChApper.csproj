@@ -1,0 +1,1021 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{84525501-A587-4905-831F-60964DF5AA6F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Chapper</RootNamespace>
+    <AssemblyName>Chapper</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>Chapper</ProductName>
+    <PublisherName>Sven Walther</PublisherName>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.6.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\Artwork\ChapperIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F5ED646021DDC6CD241D514B5227523DBCDDD20D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AppNetDotNet, Version=1.8.2.0, Culture=neutral, PublicKeyToken=c5ee942792c9b1c6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AppNet.NET.1.8.2.1\lib\net40-full\AppNetDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.0.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.0.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.0.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.0.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.0.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.0.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ApiKeys.cs" />
+    <Compile Include="Controls\InteractionBox.xaml.cs">
+      <DependentUpon>InteractionBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OpaqueClickableImage.cs" />
+    <Compile Include="Helper\DateHelpers.cs" />
+    <Compile Include="Layout\Layout.cs" />
+    <Compile Include="Model\Conversation.cs" />
+    <Compile Include="Model\Error.cs" />
+    <Compile Include="Model\InteractionEntry.cs" />
+    <Compile Include="Model\PrivateMessageChannel.cs" />
+    <Compile Include="Model\Search.cs" />
+    <Compile Include="Model\ThreadSaveObservableCollection.cs" />
+    <Compile Include="Themes\ThemeInfo.cs" />
+    <Compile Include="UserInterface\AddLink.xaml.cs">
+      <DependentUpon>AddLink.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Filter.xaml.cs">
+      <DependentUpon>Filter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Preferences.xaml.cs">
+      <DependentUpon>Preferences.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Report issue.xaml.cs">
+      <DependentUpon>Report issue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Search.xaml.cs">
+      <DependentUpon>Search.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\AutoCompleteTextbox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\CloseButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\InteractionBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\InfoBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ItemBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ListBoxItems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TabItemInMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UserInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\DefaultDarkButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\DefaultLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\GeneralDefaults.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <None Include="Themes\IncludedExamples\A Run In The Park.info">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\A Walk In The Park.info">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Black on White.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Cheer Up Emo Kid.info">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Example.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Monokai.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Orange Sundown.info">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Solarized Dark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Solarized Light.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Spinnaker.info">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Unexpected Spanish Inquisition.info">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Unexpected Walk In The Spanish Park.info">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\White on Black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\A Run In The Park.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\A Walk In The Park.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Cheer Up Emo Kid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Spinnaker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Unexpected Spanish Inquisition.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Unexpected Walk In The Spanish Park.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Orange Sundown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Page Include="UserInterface\AddLink.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Filter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AppController.cs" />
+    <Compile Include="Controls\AutoCompleteTextbox.xaml.cs">
+      <DependentUpon>AutoCompleteTextbox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CloseButton.xaml.cs">
+      <DependentUpon>CloseButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\InfoBox.xaml.cs">
+      <DependentUpon>InfoBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ItemBox.xaml.cs">
+      <DependentUpon>ItemBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ListBoxItems.xaml.cs">
+      <DependentUpon>ListBoxItems.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TabItemInMainWindow.xaml.cs">
+      <DependentUpon>TabItemInMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TextBlockItem.cs" />
+    <Compile Include="Controls\UserInfo.xaml.cs">
+      <DependentUpon>UserInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converter\ItemWidthConverter.cs" />
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\ChapperCollection.cs" />
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\PatterRoom.cs" />
+    <Compile Include="UserInterface\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Themes\DefaultDark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Preferences.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Report issue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Search.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Images\Artwork\ChapperIcon.xcf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Setup\checkDotNetFull.nsh">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Setup\Documentation.URL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Setup\logoSetupBig.xcf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Setup\logoSetupSmall.xcf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Setup\Generate Setup.nsi">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Setup\UAC.nsh">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Black on White.info">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Example.info">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Monokai.info">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Solarized Dark.info">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\Solarized Light.info">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Themes\IncludedExamples\White on Black.info">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\glyphicons_010_envelope.png" />
+    <Resource Include="Images\ButtonsWhite\glyphicons_049_star.png" />
+    <Resource Include="Images\ButtonsWhite\glyphicons_072_bookmark.png" />
+    <Resource Include="Images\ButtonsWhite\glyphicons_080_retweet.png" />
+    <Resource Include="Images\ButtonsWhite\glyphicons_150_edit.png" />
+    <Resource Include="Images\ButtonsWhite\glyphicons_221_unshare.png" />
+    <Resource Include="Images\ButtonsWhite\glyphicons_244_conversation.png" />
+    <Resource Include="Images\ButtonsWhite\glyphicons_320_filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\glyphicons_222_share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\glyphicons_016_bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsYellow\glyphicons_049_star.png" />
+    <Resource Include="Images\ButtonsYellow\glyphicons_080_retweet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Artwork\ChapperSetup.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Artwork\ChapperIcon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Artwork\ChapperIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Setup\A\UAC.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Setup\Documentation.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Setup\LICENSE.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Setup\logoSetupBig.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Setup\logoSetupSmall.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Setup\UAC.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Setup\uninstall.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Setup\U\UAC.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SnarlConnector\SnarlConnector.csproj">
+      <Project>{334a5adb-417b-40bd-8a3a-478cba554a2f}</Project>
+      <Name>SnarlConnector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UpdateCheck\UpdateCheck.csproj">
+      <Project>{f697b391-f67e-436a-8e5d-615b9cc80487}</Project>
+      <Name>UpdateCheck</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\glyphicons_192_circle_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Misc\patter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\glyphicons_136_cogwheel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\glyphicons_011_camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\glyphicons_006_user_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Misc\snarl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsBlack\glyphicons_080_retweet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsBlack\glyphicons_222_share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsBlack\glyphicons_011_camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsBlack\glyphicons_016_bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsBlack\glyphicons_136_cogwheel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Themes\IncludedExamples\Example_Images\repost.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsBlack\glyphicons_010_envelope.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_049_star.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_221_unshare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsBlack\glyphicons_244_conversation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsBlack\quote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsBlack\glyphicons_114_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\quote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\glyphicons_114_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\glyphicons_043_group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsBlack\at_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\at_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsBlack\loop_alt3_32x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\loop_alt3_32x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\glyphicons_370_globe_af.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsBlack\glyphicons_000_glass.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_001_leaf.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_002_dog.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_003_user.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_004_girl.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_005_car.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_006_user_add.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_007_user_remove.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_008_film.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_009_magic.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_012_heart.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_013_beach_umbrella.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_014_train.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_015_print.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_017_music.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_018_note.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_019_heart_empty.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_020_home.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_021_snowflake.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_022_fire.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_023_magnet.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_024_parents.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_025_binoculars.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_026_road.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_027_search.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_028_cars.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_029_notes_2.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_030_pencil.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_031_bus.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_032_wifi_alt.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_033_luggage.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_034_old_man.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_035_woman.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_036_file.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_037_coins.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_038_airplane.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_039_notes.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_040_stats.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_041_charts.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_042_pie_chart.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_043_group.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_044_keys.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_045_calendar.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_046_router.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_047_camera_small.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_048_dislikes.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_050_link.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_051_eye_open.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_052_eye_close.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_053_alarm.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_054_clock.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_055_stopwatch.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_056_projector.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_057_history.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_058_truck.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_059_cargo.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_060_compass.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_061_keynote.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_062_paperclip.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_063_power.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_064_lightbulb.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_065_tag.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_066_tags.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_067_cleaning.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_068_ruller.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_069_gift.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_070_umbrella.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_071_book.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_072_bookmark.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_073_wifi.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_074_cup.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_075_stroller.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_076_headphones.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_077_headset.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_078_warning_sign.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_079_signal.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_081_refresh.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_082_roundabout.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_083_random.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_084_heat.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_085_repeat.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_086_display.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_087_log_book.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_088_adress_book.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_089_building.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_090_eyedropper.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_091_adjust.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_092_tint.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_093_crop.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_094_vector_path_square.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_095_vector_path_circle.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_096_vector_path_polygon.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_097_vector_path_line.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_098_vector_path_curve.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_099_vector_path_all.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_100_font.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_101_italic.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_102_bold.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_103_text_underline.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_104_text_strike.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_105_text_height.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_106_text_width.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_107_text_resize.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_108_left_indent.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_109_right_indent.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_110_align_left.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_111_align_center.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_112_align_right.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_113_justify.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_115_text_smaller.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_116_text_bigger.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_117_embed.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_118_embed_close.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_119_table.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_120_message_full.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_121_message_empty.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_122_message_in.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_123_message_out.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_124_message_plus.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_125_message_minus.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_126_message_ban.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_127_message_flag.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_128_message_lock.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_129_message_new.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_130_inbox.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_131_inbox_plus.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_132_inbox_minus.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_133_inbox_lock.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_134_inbox_in.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_135_inbox_out.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_137_cogwheels.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_138_picture.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_139_adjust_alt.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_140_database_lock.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_141_database_plus.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_142_database_minus.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_143_database_ban.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_144_folder_open.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_145_folder_plus.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_146_folder_minus.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_147_folder_lock.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_148_folder_flag.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_149_folder_new.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_150_edit.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_151_new_window.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_152_check.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_153_unchecked.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_154_more_windows.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_155_show_big_thumbnails.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_156_show_thumbnails.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_157_show_thumbnails_with_lines.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_158_show_lines.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_159_playlist.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_160_imac.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_161_macbook.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_162_ipad.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_163_iphone.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_164_iphone_transfer.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_165_iphone_exchange.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_166_ipod.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_167_ipod_shuffle.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_168_ear_plugs.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_169_phone.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_170_step_backward.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_171_fast_backward.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_172_rewind.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_173_play.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_174_pause.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_175_stop.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_176_forward.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_177_fast_forward.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_178_step_forward.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_179_eject.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_180_facetime_video.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_181_download_alt.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_182_mute.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_183_volume_down.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_184_volume_up.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_185_screenshot.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_186_move.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_187_more.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_188_brightness_reduce.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_189_brightness_increase.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_190_circle_plus.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_191_circle_minus.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_192_circle_remove.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_193_circle_ok.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_194_circle_question_mark.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_195_circle_info.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_196_circle_exclamation_mark.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_197_remove.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_198_ok.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_199_ban.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_200_download.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_201_upload.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_202_shopping_cart.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_203_lock.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_204_unlock.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_205_electricity.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_206_ok_2.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_207_remove_2.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_208_cart_out.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_209_cart_in.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_210_left_arrow.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_211_right_arrow.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_212_down_arrow.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_213_up_arrow.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_214_resize_small.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_215_resize_full.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_216_circle_arrow_left.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_217_circle_arrow_right.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_218_circle_arrow_top.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_219_circle_arrow_down.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_220_play_button.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_223_chevron-right.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_224_chevron-left.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_225_bluetooth.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_226_euro.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_227_usd.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_228_gbp.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_229_retweet_2.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_230_moon.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_231_sun.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_232_cloud.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_233_direction.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_234_brush.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_235_pen.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_236_zoom_in.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_237_zoom_out.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_238_pin.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_239_albums.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_240_rotation_lock.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_241_flash.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_242_google_maps.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_243_anchor.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_245_chat.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_246_male.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_247_female.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_248_asterisk.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_249_divide.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_250_snorkel_diving.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_251_scuba_diving.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_252_oxygen_bottle.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_253_fins.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_254_fishes.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_255_boat.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_256_delete.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_257_sheriffs_star.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_258_qrcode.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_259_barcode.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_260_pool.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_261_buoy.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_262_spade.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_263_bank.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_264_vcard.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_265_electrical_plug.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_266_flag.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_267_credit_card.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_268_keyboard_wireless.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_269_keyboard_wired.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_270_shield.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_271_ring.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_272_cake.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_273_drink.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_274_beer.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_275_fast_food.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_276_cutlery.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_277_pizza.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_278_birthday_cake.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_279_tablet.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_280_settings.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_281_bullets.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_282_cardio.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_283_t-shirt.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_284_pants.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_285_sweater.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_286_fabric.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_287_leather.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_288_scissors.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_289_bomb.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_290_skull.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_291_celebration.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_292_tea_kettle.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_293_french_press.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_294_coffe_cup.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_295_pot.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_296_grater.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_297_kettle.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_298_hospital.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_299_hospital_h.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_300_microphone.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_301_webcam.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_302_temple_christianity_church.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_303_temple_islam.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_304_temple_hindu.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_305_temple_buddhist.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_306_bicycle.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_307_life_preserver.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_308_share_alt.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_309_comments.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_310_flower.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_311_baseball.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_312_rugby.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_313_ax.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_314_table_tennis.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_315_bowling.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_316_tree_conifer.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_317_tree_deciduous.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_318_more_items.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_319_sort.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_320_filter.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_321_gamepad.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_322_playing_dices.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_323_calculator.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_324_tie.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_325_wallet.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_326_piano.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_327_sampler.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_328_podium.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_329_soccer_ball.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_330_blog.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_331_dashboard.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_332_certificate.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_333_bell.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_334_candle.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_335_pushpin.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_336_iphone_shake.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_337_pin_flag.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_338_turtle.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_339_rabbit.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_340_globe.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_341_briefcase.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_342_hdd.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_343_thumbs_up.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_344_thumbs_down.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_345_hand_right.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_346_hand_left.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_347_hand_up.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_348_hand_down.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_349_fullscreen.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_350_shopping_bag.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_351_book_open.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_352_nameplate.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_353_nameplate_alt.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_354_vases.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_355_bullhorn.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_356_dumbbell.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_357_suitcase.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_358_file_import.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_359_file_export.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_360_bug.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_361_crown.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_362_smoking.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_363_cloud_upload.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_364_cloud_download.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_365_restart.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_366_security_camera.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_367_expand.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_368_collapse.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_369_collapse_top.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_370_globe_af.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_371_global.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_372_spray.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_373_nails.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_374_claw_hammer.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_375_classic_hammer.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_376_hand_saw.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_377_riflescope.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_378_electrical_socket_eu.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_379_electrical_socket_us.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_380_pinterest.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_381_dropbox.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_382_google_plus.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_383_jolicloud.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_384_yahoo.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_385_blogger.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_386_picasa.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_387_amazon.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_388_tumblr.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_389_wordpress.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_390_instapaper.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_391_evernote.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_392_xing.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_393_zootool.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_394_dribbble.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_395_deviantart.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_396_read_it_later.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_397_linked_in.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_398_forrst.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_399_pinboard.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_400_behance.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_401_github.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_402_youtube.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_403_skitch.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_404_4square.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_405_quora.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_406_badoo.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_407_spotify.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_408_stumbleupon.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_409_readability.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_410_facebook.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_411_twitter.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_412_instagram.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_413_posterous_spaces.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_414_vimeo.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_415_flickr.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_416_last_fm.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_417_rss.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_418_skype.png" />
+    <Resource Include="Images\ButtonsBlack\glyphicons_419_e-mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\glyphicons_191_circle_minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsBlack\resize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\resize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\glyphicons_050_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\glyphicons_223_chevron-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonsWhite\glyphicons_027_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Artwork\Buy Chapper.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>REM "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Bin\signtool.exe" sign /d "Chapper" /du "http://www.nymphicusapp.com/chapper" /f "C:\Users\Sven\Dropbox\Development\Zertifikate\codesign.pfx" /v "$(TargetPath)"
+REM "C:\Program Files (x86)\NSIS\makensis.exe" "$(TargetDir)\Setup\Generate Setup.nsi"
+REM "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Bin\signtool.exe" sign /d "Chapper" /du "http://www.nymphicusapp.com/chapper" /f "C:\Users\Sven\Dropbox\Development\Zertifikate\codesign.pfx" /v "$(TargetDir)\Setup\Setup-Chapper.exe"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

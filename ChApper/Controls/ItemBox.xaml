@@ -1,0 +1,409 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Controls="clr-namespace:Chapper.Controls" x:Class="Chapper.Controls.ItemBox" 
+             xmlns:layouts="clr-namespace:Chapper.Layouts"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             BorderBrush="Transparent"
+             BorderThickness="0"
+    
+             >
+    <UserControl.Resources>
+        <layouts:Layout x:Key="Layout" />
+    </UserControl.Resources>
+    <Border x:Name="border_around_item" Style="{DynamicResource theme_border_around_item}" MouseEnter="Grid_MouseEnter_1" MouseLeave="grid_main_MouseLeave_1">
+        <Grid x:Name="grid_main" Style="{DynamicResource theme_grid_around_item}" MouseEnter="Grid_MouseEnter_1" MouseLeave="grid_main_MouseLeave_1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Name="gridColumnLeft">
+                        <ColumnDefinition.Style>
+                            <Style TargetType="ColumnDefinition">
+                                <Setter Property="Width" Value="40"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding isOwnItem}" Value="True">
+                                        <Setter Property="Width" Value="*"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ColumnDefinition.Style>
+                    </ColumnDefinition>
+                    <ColumnDefinition Name="gridColumnRight">
+                        <ColumnDefinition.Style>
+                            <Style TargetType="ColumnDefinition">
+                                <Setter Property="Width" Value="*"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding isOwnItem}" Value="True">
+                                        <Setter Property="Width" Value="40"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ColumnDefinition.Style>
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Name="gridAvatar">
+                    <Grid.Style>
+                    <Style TargetType="Grid" >
+                            <Setter Property="Grid.Column" Value="0"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding isOwnItem}" Value="True">
+                                    <Setter Property="Grid.Column" Value="1"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+                    <Image x:Name="image_avatar" VerticalAlignment="Top" Source="{Binding mainAvatar, IsAsync=True}" Width="32" Margin="4,4,4,0" >
+                        <Image.Effect>
+                            <DropShadowEffect/>
+                        </Image.Effect>
+                    </Image>
+            
+                        <Image x:Name="image_repostAvatar"  VerticalAlignment="Top" Source="{Binding avatar, IsAsync=True}" Width="16" Margin="20,20,4,0" OpacityMask="White">
+                            <Image.Effect>
+                                <DropShadowEffect/>
+                            </Image.Effect>
+                            <Image.Style>
+                                <Style>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding isRepost}" Value="False">
+                                            <Setter Property="UIElement.Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+         
+                </Grid>
+                <Grid Name="gridContent">
+                    <Grid.Style>
+                        <Style TargetType="Grid">
+                            <Setter Property="Grid.Column" Value="1"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding isOwnItem}" Value="True">
+                                    <Setter Property="Grid.Column" Value="0"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+                    <VirtualizingStackPanel Orientation="Vertical" Margin="4,0,0,0">
+                        <VirtualizingStackPanel x:Name="stackPanel_Header" 
+                                                Style="{DynamicResource theme_header_item}"
+                                                Orientation="Horizontal" Margin="0,0,0,4">
+                            <Button Name="buttonAuthorRepost" Click="buttonAuthorRepost_Click_1" Cursor="Hand" ToolTip="Show user info">
+                            <TextBlock Margin="0" x:Name="textblock_repostUsername" Text="{Binding repostDisplayName}" FontStyle="Italic" Foreground="{StaticResource color_header}" FontSize="{Binding CurrentLayout.ItemBoxFontSizeHeader, Source={StaticResource Layout}}">
+                                    <TextBlock.Style>
+                                        <Style>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding isRepost}" Value="False">
+                                                    <Setter Property="UIElement.Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <ContentPresenter Content="{TemplateBinding Content}" />
+                                    </ControlTemplate>
+                                </Button.Template>
+                            <Button.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Name="context_click_mute_repost" Header="Mute user" Click="context_click_mute_repost_Click"/>
+                                    <MenuItem Name="context_click_block_repost" Header="Block user" Click="context_click_block_repost_Click"/>
+                                </ContextMenu>
+                            </Button.ContextMenu>
+                        </Button>
+                        <Image x:Name="image_isRepost" Margin="4,0,4,0" Source="{DynamicResource button_repost}" Height="10">
+                                <Image.Style>
+                                    <Style>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding isRepost}" Value="False">
+                                                <Setter Property="UIElement.Visibility" Value="Collapsed"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
+                            <Button Name="buttonAuthor" Click="buttonAuthor_Click_1">
+                            <TextBlock  Foreground="{StaticResource color_header}" x:Name="textblock_username" Text="{Binding displayName}" FontStyle="Italic" Cursor="Hand" ToolTip="Show user info" FontSize="{Binding CurrentLayout.ItemBoxFontSizeHeader, Source={StaticResource Layout}}"/>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <ContentPresenter Content="{TemplateBinding Content}" />
+                                    </ControlTemplate>
+                                </Button.Template>
+                            <Button.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Name="context_click_mute" Header="Mute user" Click="context_click_mute_Click" />
+                                    <MenuItem Name="context_click_block" Header="Block user" Click="context_click_block_Click" />
+                                </ContextMenu>
+                            </Button.ContextMenu>
+                        </Button>
+
+                        <Image x:Name="image_hasReceiver" Margin="4,0,4,0" Source="{DynamicResource image_hasReceiver}" Height="10">
+                            <Image.Style>
+                                <Style>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding hasReceiver}" Value="False">
+                                            <Setter Property="UIElement.Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+
+                        <Button Name="buttonMessageReceiver" Cursor="Hand" ToolTip="Show user info" Click="buttonMessageReceiver_Click" >
+                            <TextBlock Margin="0" x:Name="textblock_receiverUsername" Text="{Binding messageReceiver.username}" FontStyle="Italic" Foreground="{StaticResource color_header}" FontSize="{Binding CurrentLayout.ItemBoxFontSizeHeader, Source={StaticResource Layout}}">
+                                <TextBlock.Style>
+                                    <Style>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding hasReceiver}" Value="False">
+                                                <Setter Property="UIElement.Visibility" Value="Collapsed"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <ContentPresenter Content="{TemplateBinding Content}" />
+                                </ControlTemplate>
+                            </Button.Template>
+                            <Button.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Name="context_click_mute_receiver" Header="Mute user" Click="context_click_mute_receiver_Click"/>
+                                    <MenuItem Name="context_click_block_receiver" Header="Block user" Click="context_click_block_receiver_Click" />
+                                </ContextMenu>
+                            </Button.ContextMenu>
+                        </Button>
+
+                    </VirtualizingStackPanel>
+
+                    <Controls:TextblockItem x:Name="textblock_text" Style="{DynamicResource theme_content_item}" 
+                                            ItemEntities="{Binding Path=entities}" TextWrapping="Wrap" 
+                                            ToolTip="{Binding Path=tooltip}" Margin="0,0,4,0" 
+                                            FontSize="{Binding CurrentLayout.ItemBoxFontSizeContent, Source={StaticResource Layout}}" />
+                    <TreeView BorderThickness="0" BorderBrush="Transparent" Background="Transparent" Height="38" Name="listbox_imagesInPost" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Path=imagesInPost}" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.ScrollUnit="Pixel">
+                            <TreeView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel Orientation="Horizontal" IsItemsHost="True" />
+                                </ItemsPanelTemplate>
+                            </TreeView.ItemsPanel>
+                            <TreeView.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Name="button_embeddedImage" CommandParameter="{Binding Path=url}" Click="button_embeddedImage_Click_1" Cursor="Hand">    
+                                            <Image Source="{Binding Path=thumbnail_url,IsAsync=True}" MaxHeight="36" MaxWidth="36" ToolTipService.ShowDuration="60000">
+                                                <Image.ToolTip>
+                                                <Grid>
+                                                    <TextBlock x:Name="textblock_loadingImage" Text="Loading image..." />
+                                                    <Image Source="{Binding Path=url,IsAsync=True}" />
+                                                </Grid>
+                                            </Image.ToolTip>
+                                            </Image>
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <ContentPresenter Content="{TemplateBinding Content}" />
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+                                </DataTemplate>
+                            </TreeView.ItemTemplate>
+                            <TreeView.Style>
+                                <Style>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding hasEmbeddedImages}" Value="False">
+                                            <Setter Property="UIElement.Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TreeView.Style>
+                        </TreeView>
+
+                    <VirtualizingStackPanel Style="{DynamicResource theme_footer_item}" x:Name="stackpanel_itemBottom" Orientation="Horizontal" Margin="0,4,0,0">
+                        <TextBlock x:Name="textblock_createdAt" Text="{Binding displayDate}" Foreground="{StaticResource color_footer}" FontSize="{Binding CurrentLayout.ItemBoxFontSizeFooter, Source={StaticResource Layout}}" VerticalAlignment="Bottom" />
+                            <TextBlock x:Name="texblock_via" Margin="4,0,0,0" VerticalAlignment="Bottom" >
+                                <TextBlock x:Name="texblock_viaText" Text="via " FontSize="{Binding CurrentLayout.ItemBoxFontSizeFooter, Source={StaticResource Layout}}"  Foreground="{StaticResource color_footer}" />
+                                <Hyperlink Name="hyperlink_source" TargetName="{Binding Path=source.name}" NavigateUri="{Binding Path=source.link}" Foreground="{StaticResource color_link_client}"  TextDecorations="None" Click="hyperlink_source_Click_1" FontSize="{Binding CurrentLayout.ItemBoxFontSizeFooter, Source={StaticResource Layout}}">
+                                    <TextBlock FontSize="{Binding CurrentLayout.ItemBoxFontSizeFooter, Source={StaticResource Layout}}" x:Name="texblock_sourceName"  Foreground="{StaticResource color_link_client}" Text="{Binding Path=source.name}" />
+                                </Hyperlink>
+                            </TextBlock>
+
+                            <VirtualizingStackPanel x:Name="stackpanel_itemButtons" Orientation="Horizontal" Visibility="Collapsed">
+                                <Button x:Name="button_reply" HorizontalAlignment="Right" Margin="4,0,0,0" Height="9" ToolTip="Reply" Padding="0" Click="button_reply_Click_1">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <ContentPresenter Content="{TemplateBinding Content}" />
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                <Image Margin="4,0,0,0" Source="{DynamicResource button_reply}">
+                                        <Image.Style>
+                                            <Style>
+                                                <Setter Property="UIElement.Opacity" Value="0.7" />
+                                                <Style.Triggers>
+                                                    <Trigger  Property="UIElement.IsMouseOver" Value="True">
+                                                        <Setter Property="UIElement.Opacity" Value="1" />
+                                                    </Trigger>
+
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                </Button>
+                                <Button x:Name="button_repost" HorizontalAlignment="Right" Margin="4,0,0,0" Height="9" ToolTip="Repost" Padding="0" Click="button_repost_Click_1">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <ContentPresenter Content="{TemplateBinding Content}" />
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                    <Image>
+                                        <Image.Style>
+                                            <Style>
+                                                <Setter Property="UIElement.Opacity" Value="0.7" />
+                                                <Style.Triggers>
+                                                    <Trigger  Property="UIElement.IsMouseOver" Value="True">
+                                                        <Setter Property="UIElement.Opacity" Value="1" />
+                                                    </Trigger>
+                                                    <DataTrigger Binding="{Binding isOwnRepost}" Value="True">
+                                                        <Setter Property="Image.Source" Value="{DynamicResource button_unrepost}"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding isOwnRepost}" Value="False">
+                                                        <Setter Property="Image.Source" Value="{DynamicResource button_repost}"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                </Button>
+                            <Button x:Name="button_quote" HorizontalAlignment="Right" Margin="4,0,0,0" 
+                                    Height="9" ToolTip="Quote post" Padding="0" Click="button_quote_Click">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <ContentPresenter Content="{TemplateBinding Content}" />
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <Image Source="{DynamicResource button_quote}">
+                                    <Image.Style>
+                                        <Style>
+                                            <Setter Property="UIElement.Opacity" Value="0.7" />
+                                            <Style.Triggers>
+                                                <Trigger  Property="UIElement.IsMouseOver" Value="True">
+                                                    <Setter Property="UIElement.Opacity" Value="1" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Button>
+                            <Button x:Name="button_starItem" HorizontalAlignment="Right" Margin="4,0,0,0" Height="9" ToolTip="Star" Padding="0" Click="button_starItem_Click_1">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <ContentPresenter Content="{TemplateBinding Content}" />
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                    <Image>
+                                        <Image.Style>
+                                            <Style>
+                                                <Setter Property="UIElement.Opacity" Value="0.7" />
+                                                <Style.Triggers>
+                                                    <Trigger  Property="UIElement.IsMouseOver" Value="True">
+                                                        <Setter Property="UIElement.Opacity" Value="1" />
+                                                    </Trigger>
+                                                    <DataTrigger Binding="{Binding isStarred}" Value="True">
+                                                        <Setter Property="Image.Source" 
+                                                                Value="{DynamicResource button_unstar}" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding isStarred}" Value="False">
+                                                        <Setter Property="Image.Source" 
+                                                                Value="{DynamicResource button_star}"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding isPrivateMessage}" Value="True">
+                                                        <Setter Property="UIElement.Visibility" Value="Collapsed"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                </Button>
+
+                                <Button x:Name="button_sendMessage" HorizontalAlignment="Right" Margin="4,0,0,0" Height="9" ToolTip="Send message to user..." Padding="0" Click="button_sendMessage_Click_1">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <ContentPresenter Content="{TemplateBinding Content}" />
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                <Image Source="{DynamicResource button_send_message}">
+                                        <Image.Style>
+                                            <Style>
+                                                <Setter Property="UIElement.Opacity" Value="0.7" />
+                                                <Style.Triggers>
+                                                    <Trigger  Property="UIElement.IsMouseOver" Value="True">
+                                                        <Setter Property="UIElement.Opacity" Value="1" />
+                                                    </Trigger>
+                                                    <DataTrigger Binding="{Binding isOwnItem}" Value="True">
+                                                        <Setter Property="UIElement.Visibility" Value="Collapsed"/>
+                                                    </DataTrigger>
+                                                <DataTrigger Binding="{Binding user.you_can_subscribe}" Value="False">
+                                                    <Setter Property="UIElement.Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                </Button>
+
+
+                                <Button x:Name="button_conversation" HorizontalAlignment="Right" Margin="4,0,0,0" Height="9" ToolTip="Show full conversation..." Padding="0" Click="button_conversation_Click_1">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <ContentPresenter Content="{TemplateBinding Content}" />
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                <Image Source="{DynamicResource button_show_conversation}">
+                                        <Image.Style>
+                                            <Style>
+                                                <Setter Property="UIElement.Opacity" Value="0.7" />
+                                                <Style.Triggers>
+                                                    <Trigger  Property="UIElement.IsMouseOver" Value="True">
+                                                        <Setter Property="UIElement.Opacity" Value="1" />
+                                                    </Trigger>
+                                                    <DataTrigger Binding="{Binding isConversation}" Value="False">
+                                                        <Setter Property="UIElement.Visibility" Value="Collapsed"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                </Button>
+
+                            <Button x:Name="button_delete" HorizontalAlignment="Right" Margin="4,0,0,0" Height="9" ToolTip="Delete..." Padding="0" Click="button_delete_Click">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <ContentPresenter Content="{TemplateBinding Content}" />
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <Image Source="{DynamicResource button_trash}">
+                                    <Image.Style>
+                                        <Style>
+                                            <Setter Property="UIElement.Opacity" Value="0.7" />
+                                            <Style.Triggers>
+                                                <Trigger  Property="UIElement.IsMouseOver" Value="True">
+                                                    <Setter Property="UIElement.Opacity" Value="1" />
+                                                </Trigger>
+                                                <DataTrigger Binding="{Binding isOwnItem}" Value="False">
+                                                    <Setter Property="UIElement.Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Button>
+
+                        </VirtualizingStackPanel>
+
+                        </VirtualizingStackPanel>
+                    </VirtualizingStackPanel>
+            
+                </Grid>
+            </Grid>
+    </Border>
+</UserControl>

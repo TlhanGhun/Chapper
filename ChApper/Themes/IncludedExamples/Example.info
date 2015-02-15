@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<ThemeInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title>Example theme</title>
+  <author>Sven Walther</author>
+  <copyright>Sven Walther 2013</copyright>
+  <version>1.0</version>
+  <description>This example theme provides many examples on what can be done in own themes.
+It might not be the nicest but might be a good start for your own advanced theme.</description>
+  <homepage>http://www.nymphicusapp.com/chapper/</homepage>
+  <useDefaultDarkItems>false</useDefaultDarkItems>
+</ThemeInfo>

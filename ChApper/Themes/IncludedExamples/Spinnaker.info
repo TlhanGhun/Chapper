@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ThemeInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title>Spinnaker</title>
+  <author>Sven Walther</author>
+  <version>1.0</version>
+  <copyright>Sven Walther 2013</copyright>
+  <description>Scheme inspired by Spinnaker with rounded edges, transparency and no window border</description>
+  <useDefaultDarkItems>false</useDefaultDarkItems>
+  <mainwindowBorderless>true</mainwindowBorderless>
+  <makeWindowTransparent>true</makeWindowTransparent>
+</ThemeInfo>
+
+
+
+
+
